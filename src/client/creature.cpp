@@ -301,6 +301,32 @@ void Creature::drawInformation(const Point& point, bool useGray, const Rect& par
         Rect iconRect = Rect(backgroundRect.x() + 13.5 + 12, backgroundRect.y() + 5, m_iconTexture->getSize());
         g_drawQueue->addTexturedRect(iconRect, m_iconTexture, Rect(0, 0, m_iconTexture->getSize()));
     }
+
+    float offsetx = 13.5 + 12, offsety = -26;
+    if (m_resistances & 1) {
+        TexturePtr res = g_textures.getTexture("images/game/resist/physical.png");
+        Rect iconRect = Rect(backgroundRect.x() + offsetx, backgroundRect.y() + offsety, res->getSize());
+        g_drawQueue->addTexturedRect(iconRect, res, Rect(0, 0, res->getSize()));
+        offsetx -= 14;
+    }
+    if (m_resistances & 2) {
+        TexturePtr res = g_textures.getTexture("images/game/resist/energy.png");
+        Rect iconRect = Rect(backgroundRect.x() + offsetx, backgroundRect.y() + offsety, res->getSize());
+        g_drawQueue->addTexturedRect(iconRect, res, Rect(0, 0, res->getSize()));
+        offsetx -= 14;
+    }
+    if (m_resistances & 4) {
+        TexturePtr res = g_textures.getTexture("images/game/resist/poison.png");
+        Rect iconRect = Rect(backgroundRect.x() + offsetx, backgroundRect.y() + offsety, res->getSize());
+        g_drawQueue->addTexturedRect(iconRect, res, Rect(0, 0, res->getSize()));
+        offsetx -= 14;
+    }
+    if (m_resistances & 8) {
+        TexturePtr res = g_textures.getTexture("images/game/resist/fire.png");
+        Rect iconRect = Rect(backgroundRect.x() + offsetx, backgroundRect.y() + offsety, res->getSize());
+        g_drawQueue->addTexturedRect(iconRect, res, Rect(0, 0, res->getSize()));
+        offsetx -= 14;
+    }
 }
 
 bool Creature::isInsideOffset(Point offset)
@@ -753,6 +779,11 @@ void Creature::setBaseSpeed(double baseSpeed)
 
         callLuaField("onBaseSpeedChange", baseSpeed, oldBaseSpeed);
     }
+}
+
+void Creature::setResistances(uint32 resistances)
+{
+    m_resistances = resistances;
 }
 
 void Creature::setSkull(uint8 skull)

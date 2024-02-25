@@ -64,6 +64,7 @@ public:
     void setSpeed(uint16 speed);
     void setBaseSpeed(double baseSpeed);
     void setSkull(uint8 skull);
+    void setResistances(uint32 resistance);
     void setShield(uint8 shield);
     void setEmblem(uint8 emblem);
     void setType(uint8 type);
@@ -220,6 +221,7 @@ protected:
     uint16 m_speed;
     double m_baseSpeed;
     uint8 m_skull;
+    uint32_t m_resistances;
     uint8 m_shield;
     uint8 m_emblem;
     uint8 m_type;
