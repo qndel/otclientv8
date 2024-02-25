@@ -166,7 +166,7 @@ function sendStats()
   if Services.stats ~= nil and Services.stats:len() > 3 then
     g_http.post(Services.stats, data)
   end
-  g_http.post("http://otclient.ovh/api/stats.php", data)
+  --g_http.post("http://otclient.ovh/api/stats.php", data)
   fps = {}
   ping = {}
 end
@@ -174,7 +174,7 @@ end
 function update()
   updateEvent = scheduleEvent(update, 20)
   if lastSend + sendInterval < os.time() then
-    sendStats()
+    --sendStats()
   end
   
   if not statsWindow:isVisible() then
