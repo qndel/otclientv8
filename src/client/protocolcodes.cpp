@@ -172,6 +172,7 @@ void buildMessageModesMap(int version) {
         messageModesMap[Otc::MessageFailure]                 = 23;
         messageModesMap[Otc::MessageBlue]                    = 24;
         messageModesMap[Otc::MessageRed]                     = 25;
+        messageModesMap[Otc::MessageGamemasterChannel] = 10;
     }
 }
 
