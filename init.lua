@@ -22,12 +22,14 @@ Servers = {
   Evoulinia = "evolunia.net:7171:1098",
   GarneraTest = "garnera-global.net:7171:1100",
   LocalTestServ = "127.0.0.1:7171:1098:110:30:93"  ]]
+  GrzybServ = "grzyby.ddns.net:7171",
+  GrzybTestServer = "grzyby.ddns.net:7172"
 }
 
 --Server = "ws://otclient.ovh:3000/"
 --Server = "ws://127.0.0.1:88/"
 --USE_NEW_ENERGAME = true -- uses entergamev2 based on websockets instead of entergame
-ALLOW_CUSTOM_SERVERS = true -- if true it shows option ANOTHER on server list
+ALLOW_CUSTOM_SERVERS = false -- if true it shows option ANOTHER on server list
 
 g_app.setName("OTCv8")
 -- CONFIG END
