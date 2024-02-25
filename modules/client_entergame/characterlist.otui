@@ -102,20 +102,6 @@ StaticMainWindow
     margin-bottom: 10
 
   Button
-    id: autoReconnect
-    width: 140
-    anchors.left: parent.left
-    anchors.bottom: parent.bottom
-    
-    $!on:
-      image-color: red    
-      !text: tr('Auto reconnect: Off')
-
-    $on:
-      !text: tr('Auto reconnect: On')
-      image-color: green
-
-  Button
     id: buttonOk
     !text: tr('Ok')
     width: 64
