@@ -24,7 +24,7 @@ OptionPanel
 
   OptionCheckBox
     id: enableLights
-    !text: tr('Enable lights')
+    !text: tr('Enable lights<DISABLED>')
 
   OptionCheckBox
     id: fullscreen
@@ -85,7 +85,7 @@ OptionPanel
     margin-top: 6
     @onSetup: |
       local value = modules.client_options.getOption('ambientLight')
-      self:setText(tr('Ambient light: %s%%', value))
+      self:setText(tr('Ambient light: %s%% <DISABLED>', value))
 
   OptionScrollbar
     id: ambientLight

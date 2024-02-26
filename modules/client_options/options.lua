@@ -25,10 +25,10 @@ local defaultOptions = {
   enableMusicSound = false,
   musicSoundVolume = 100,
   botSoundVolume = 100,
-  enableLights = false,
+  enableLights = true,
   floorFading = 500,
   crosshair = 2,
-  ambientLight = 100,
+  ambientLight = 0,
   optimizationLevel = 1,
   displayNames = true,
   displayHealth = true,
@@ -288,9 +288,9 @@ function setOption(key, value, force)
     graphicsPanel:getChildById('backgroundFrameRateLabel'):setText(tr('Game framerate limit: %s', text))
     g_app.setMaxFps(v)
   elseif key == 'enableLights' then
-    gameMapPanel:setDrawLights(value and options['ambientLight'] < 100)
-    graphicsPanel:getChildById('ambientLight'):setEnabled(value)
-    graphicsPanel:getChildById('ambientLightLabel'):setEnabled(value)
+    gameMapPanel:setDrawLights(true)
+    graphicsPanel:getChildById('ambientLight'):setEnabled(false)
+    graphicsPanel:getChildById('ambientLightLabel'):setEnabled(false)
   elseif key == 'floorFading' then
     gameMapPanel:setFloorFading(value)
     interfacePanel:getChildById('floorFadingLabel'):setText(tr('Floor fading: %s ms', value))
@@ -303,9 +303,9 @@ function setOption(key, value, force)
       gameMapPanel:setCrosshair("/images/crosshair/full.png")    
     end
   elseif key == 'ambientLight' then
-    graphicsPanel:getChildById('ambientLightLabel'):setText(tr('Ambient light: %s%%', value))
-    gameMapPanel:setMinimumAmbientLight(value/100)
-    gameMapPanel:setDrawLights(options['enableLights'] and value < 100)
+    graphicsPanel:getChildById('ambientLightLabel'):setText(tr('Ambient light: %s%%', 0))
+    gameMapPanel:setMinimumAmbientLight(0)
+    gameMapPanel:setDrawLights(true)
   elseif key == 'optimizationLevel' then
     g_adaptiveRenderer.setLevel(value - 2)
   elseif key == 'displayNames' then
@@ -428,9 +428,9 @@ end
 
 -- graphics
 function setLightOptionsVisibility(value)
-  graphicsPanel:getChildById('enableLights'):setEnabled(value)
-  graphicsPanel:getChildById('ambientLightLabel'):setEnabled(value)
-  graphicsPanel:getChildById('ambientLight'):setEnabled(value)  
+  graphicsPanel:getChildById('enableLights'):setEnabled(false)
+  graphicsPanel:getChildById('ambientLightLabel'):setEnabled(false)
+  graphicsPanel:getChildById('ambientLight'):setEnabled(false)  
   interfacePanel:getChildById('floorFading'):setEnabled(value)
   interfacePanel:getChildById('floorFadingLabel'):setEnabled(value)
   interfacePanel:getChildById('floorFadingLabel2'):setEnabled(value)  
