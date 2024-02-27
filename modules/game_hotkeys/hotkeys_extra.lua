@@ -113,7 +113,9 @@ function setupExtraHotkeys(combobox)
   end)
   addExtraHotkey("attackNearest", "Attack nearest", function(repeated)
     if not repeated then
-      attackNearest(7)
+      if modules.game_console.consoleToggleChat:isChecked() then
+        attackNearest(7)
+      end
     end
   end)
   addExtraHotkey("attackNext", "Attack next target from battle list", function(repeated)
